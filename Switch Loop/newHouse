@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class switchLoopNewHouse {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in) ;
+
+        String flowers = scanner.nextLine() ;
+        int numFlowers = Integer.parseInt(scanner.nextLine()) ;
+        int Budget = Integer.parseInt(scanner.nextLine()) ;
+        double Price = 0;
+
+        switch (flowers) {
+                case "Roses":
+                    Price = numFlowers * 5;
+                    if (numFlowers > 80) {
+                        Price = Price * 0.90;
+                    }
+                    break;
+                case "Dahlias":
+                    Price = numFlowers * 3.80;
+                    if (numFlowers > 90) {
+                        Price = Price * 0.85;
+                    }
+                    break;
+                case "Tulips":
+                    Price = numFlowers * 2.80;
+                    if (numFlowers > 80) {
+                        Price = Price * 0.85;
+                    }
+                    break;
+                case "Narcissus":
+                    Price = numFlowers * 3;
+                    if (numFlowers < 120) {
+                        Price = Price * 1.15;
+                    }
+                    break;
+                case "Gladiolus":
+                    Price = numFlowers * 2.50;
+                    if (numFlowers < 80) {
+                        Price = Price * 1.20;
+                    }
+                    break;
+            }
+
+            double diff = Math.abs( Budget - Price ) ;
+
+            if( Budget >= Price ) {
+                System.out.printf("Hey, you have a great garden with %d %s and %.2f leva left.", numFlowers, flowers, diff);
+
+            } else {
+                System.out.printf("Not enough money, you need %.2f leva more.", diff);
+            }
+    }
+}
